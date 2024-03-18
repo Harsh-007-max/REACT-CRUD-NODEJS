@@ -5,7 +5,7 @@ const Employee = require("../models/EmployeeModel");
 //---------------get All----------------
 
 const  getAllRecords = async (req,res)=>{
-    const Employees = await Employee.find({});
+    const Employees = await Employee.find({}).sort({EmployeeID:1});
     res.send(Employees); 
 }
 
@@ -43,6 +43,7 @@ const updateEmployee = async (req,res)=>{
     res.send(response);
 }
 
+//---------------delete Employee----------------
 const removeEmployee = async (req,res)=>{
     const EmployeeID = req.params.id;
     const Acknowledgement = await Employee.deleteOne({EmployeeID:EmployeeID});

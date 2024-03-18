@@ -14,6 +14,9 @@ export default function AppBar(props) {
                         </li>
                         <li className="nav-item">
                             <Link className="nav-link active" to="/">Insert</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-link active" to="/TableView">TableView</Link>
                         </li>    
                     </ul>
                     <form className="d-flex" role="search">
