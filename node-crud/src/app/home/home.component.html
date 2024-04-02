@@ -1,0 +1,16 @@
+<div class="d-flex flex-wrap">
+  <div class="card m-3" style="width: 15rem" *ngFor="let employee of employees">
+    <div class="card-body">
+      <h5 class="card-title">{{ employee.Name }}</h5>
+      <p class="card-text">{{ employee.Description }}</p>
+      <p class="card-text">{{ employee.Position }}</p>
+      <p class="card-text">{{ employee.Salary }}</p>
+      <button
+        class="btn btn-info m-2"
+        routerLink="/get/{{ employee.EmployeeID }}"
+      >
+        View More
+      </button>
+    </div>
+  </div>
+</div>

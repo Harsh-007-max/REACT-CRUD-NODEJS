@@ -1,0 +1,44 @@
+<form class="d-flex justify-content-center" #employeeForm="ngForm" (ngSubmit)="submit(employeeForm)">
+  <div class="card m-5 p-3" style="width:18rem;">
+    <input
+      class="form-control mb-3"
+      type="text"
+      name="Name"
+      placeholder="Enter name"
+      [(ngModel)]="data.Name"
+    />
+    <input
+      class="form-control mb-3"
+      type="text"
+      name="Description"
+      placeholder="Enter description"
+      [(ngModel)]="data.Description"
+    />
+    <input
+      class="form-control mb-3"
+      type="text"
+      name="Position"
+      placeholder="Enter position"
+      [(ngModel)]="data.Position"
+    />
+    <input
+      class="form-control mb-3"
+      type="text"
+      name="Salary"
+      placeholder="Enter salary"
+      [(ngModel)]="data.Salary"
+    />
+    <button
+      class="btn btn-primary"
+      *ngIf="idToEdit > 0"
+    >
+      Update
+    </button>
+    <button
+      class="btn btn-primary"
+      *ngIf="idToEdit <= 0"
+    >
+      Insert
+    </button>
+  </div>
+<

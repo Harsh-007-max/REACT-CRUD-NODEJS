@@ -6,9 +6,8 @@ export default function InsertUser(props) {
   const { id } = useParams();
   const [data, setData] = useState({});
   const navigate = useNavigate();
-
   useEffect(() => {
-    if (id !==undefined) {
+    if (id !== undefined) {
       fetch(`${apiURL}/${id}`)
         .then((res) => res.json())
         .then((res) => setData(res));
@@ -29,7 +28,7 @@ export default function InsertUser(props) {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(data),
-    }).then(() =>fetch(`${apiURL}`).then(res => res.json()).then(res => props.setUsers([...res])));
+    }).then(() => fetch(`${apiURL}`).then(res => res.json()).then(res => props.setUsers([...res])));
   };
 
   const updateUser = (id) => {
@@ -44,7 +43,7 @@ export default function InsertUser(props) {
     <>
       <div className="card m-3" style={{ width: "18rem" }}>
         <div className="card-body container">
-            {/* {data.EmployeeID} */}
+          {/* {data.EmployeeID} */}
           <input
             type="text"
             name="Name"
@@ -79,10 +78,20 @@ export default function InsertUser(props) {
             type="text"
             name="Salary"
             placeholder="Enter Employee Salary"
+            pattern="[0-9]{3,7}"
             // value={id? data.Salary : ""}
             className="form-control mb-3"
             onChange={(e) => {
-              inputChange(e);
+              // inputChange(e);
+              if(/^\d*$/.test(e.target.value)){
+                setData({
+                  ...data,
+                  [e.target.name]: e.target.value,
+                  // EmployeeID: props.length,
+                });
+              }else{
+                e.target.value="";
+              }
             }}
           />
           {id ?
@@ -94,7 +103,7 @@ export default function InsertUser(props) {
             >
               Update
             </button>
-          : 
+            :
             <button
               className="btn btn-primary"
               onClick={() => {

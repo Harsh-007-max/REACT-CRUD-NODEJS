@@ -4,7 +4,7 @@ const cors = require("cors");
 const ConnectDB = require("./connectDB");
 const router = require("./routes/EmployeeRoutes");
 
-const PORT = 8000;
+const PORT =8000;
 //const DB_Path = "mongodb://localhost:27017/Employee";
 const DB_Path = "mongodb+srv://harshbhalodiya1209:cIQPt1fgLYiX3wlg@jayshreeram.qckgzxj.mongodb.net/?retryWrites=true&w=majority&appName=JayShreeRam"
 //connecting database

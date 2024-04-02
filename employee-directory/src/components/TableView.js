@@ -5,6 +5,7 @@ const apiURL = "http://localhost:8000";
 export default function TableView(props) {
     const [users, setUsers] = useState([]);
     const navigate = useNavigate();
+
     useEffect(() => {
         fetch(`${apiURL}`).then(res => res.json()).then(res => setUsers([...res]));
     }, []);
