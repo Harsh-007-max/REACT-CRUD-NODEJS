@@ -33,7 +33,6 @@ export class InsertEmployeeComponent {
   }
   submit(form: NgForm) {
     this.fillData(form);
-    console.log(this.idToEdit);
     if (this.idToEdit ==0) {
       this.addEmployee(form);
     } else {
